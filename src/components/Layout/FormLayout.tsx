@@ -7,7 +7,7 @@ type Props = {
 
 const FormLayout = (props:Props) => {
   return <div
-  className="w-[30rem] mx-auto pt-36"
+  className="w-[30rem] mx-auto py-36"
   >
     {props.children ?? <Outlet/>}
   </div>;

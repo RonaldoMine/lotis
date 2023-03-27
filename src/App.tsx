@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import EditLayout from "./components/Layout/EditLayout";
 import FormLayout from "./components/Layout/FormLayout";
 import AddLand from "./pages/AddLand";
+import Lands from "./pages/Lands";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 
@@ -15,6 +16,7 @@ function App() {
         </Route>
         <Route element={<EditLayout/>}>
           <Route path="/add" element={<AddLand/>}/>
+          <Route path="/lands" element={<Lands/>}/>
         </Route>
       </Route>
     </Routes>
