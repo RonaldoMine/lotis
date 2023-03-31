@@ -1,26 +1,27 @@
-import { Routes, Route } from "react-router-dom";
-import EditLayout from "./components/Layout/EditLayout";
-import FormLayout from "./components/Layout/FormLayout";
+import {Routes, Route} from "react-router-dom";
+import EditLayout from "./components/layout/EditLayout";
+import LayoutAuth from "./components/layout/LayoutAuth";
+import LayoutGuest from "./components/layout/LayoutGuest";
 import AddLand from "./pages/AddLand";
 import Lands from "./pages/Lands";
-import Login from "./pages/Login";
+import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/">
-        <Route path="/auth" element={<FormLayout />}>
-          <Route index element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
-        </Route>
-        <Route element={<EditLayout/>}>
-          <Route path="/add" element={<AddLand/>}/>
-          <Route path="/lands" element={<Lands/>}/>
-        </Route>
-      </Route>
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path="auth" element={<LayoutGuest/>}>
+                <Route path="sign-in" element={<SignIn/>}/>
+                <Route path="sign-up" element={<SignUp/>}/>
+            </Route>
+            <Route path="admin" element={<LayoutAuth/>}>
+                <Route path="dashboard" element={<Dashboard/>}/>
+                <Route path="lands" element={<Lands/>}/>
+                <Route path="lands/add" element={<AddLand/>}/>
+            </Route>
+        </Routes>
+    );
 }
 
 export default App;
