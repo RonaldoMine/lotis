@@ -1,18 +1,25 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Divider from "../components/Divider";
 import TextInput from "../components/TextInput";
-import { useAuthStore } from "../stores/authStore/authStore";
+import useAuth from "../hooks/useAuth";
+import { toast } from "react-toastify";
+import { BASE_URL } from "../utils/axios/axios";
 
 // type Props = {};
 
 export default function Login() {
   //state
-  const [signIn, setSignIn] = useState({ email: "", password: "" });
+  const [userInfos, setuserInfos] = useState({ email: "", password: "" });
 
-  const login = useAuthStore((state) => state.login);
-  const auth = useAuthStore((state) => state.auth);
+  const { signIn } = useAuth();
+
+  const navigate = useNavigate();
+
+  // const login = useAuthStore((state) => state.login);
+  // const auth = useAuthStore((state) => state.auth);
   // const resetErrors = useAuthStore((state) => state.resetErrors);
 
   // useEffect(() => {
@@ -21,13 +28,51 @@ export default function Login() {
   //     resetErrors();
   //   };
   // }, [auth]);
-  useEffect(() => {
-    auth.currentUser !== null ? console.log('d') : console.log('d')
-  }, [auth])
+  // useEffect(() => {
+  //   auth.currentUser !== null ? console.log('d') : console.log('d')
+  // }, [auth])
 
   //function
-  const handleSubmit = () => {
-    login(signIn.email, signIn.password);
+  const handleSubmit = async () => {
+    try {
+      const user = await toast.promise(
+        axios.post(BASE_URL + "auth/login", {
+          email: userInfos.email,
+          password: userInfos.password,
+        }),
+        {
+          pending: "Loading...",
+          success: "Successfully authenticated👌",
+          error: "An error occured 🤯",
+        },
+        {
+          pauseOnFocusLoss: false,
+        }
+      );
+      const {
+        first_name,
+        last_name,
+        role_id,
+        token,
+        cni_number,
+        commercial_register_number,
+      } = user.data?.user;
+      signIn({
+        email: userInfos.email,
+        token,
+        firstName: first_name,
+        lastName: last_name,
+        role: role_id,
+        cniNumber: cni_number,
+        commercialRegisterNumber: commercial_register_number,
+      });
+
+      navigate("/lands", {
+        replace: true,
+      });
+    } catch (error) {
+      console.log("Error", error);
+    }
   };
 
   return (
@@ -40,8 +85,10 @@ export default function Login() {
           type="email"
           required
           placeholder="Enter an email"
-          value={signIn.email}
-          onChange={(e) => setSignIn({ ...signIn, email: e.target.value })}
+          value={userInfos.email}
+          onChange={(e) =>
+            setuserInfos({ ...userInfos, email: e.target.value })
+          }
         />
         <br />
         <TextInput
@@ -49,8 +96,10 @@ export default function Login() {
           type="password"
           required
           placeholder="Enter a password"
-          value={signIn.password}
-          onChange={(e) => setSignIn({ ...signIn, password: e.target.value })}
+          value={userInfos.password}
+          onChange={(e) =>
+            setuserInfos({ ...userInfos, password: e.target.value })
+          }
         />
         <br />
         <Button onClick={handleSubmit}>Submit</Button>

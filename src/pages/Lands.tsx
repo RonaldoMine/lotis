@@ -39,7 +39,7 @@ const Lands = (props: Props) => {
         headers: {
           Authorization:
             "Bearer " +
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvbmFsZG9AZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTY3OTg3MDU5OCwiZXhwIjoxNjgwMDQzMzk4fQ.hmjZVcoFTjq7oXp8Svr4M86Z8EW44fsZt0XCTqX6x7Y",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvbmFsZG9AZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTY4MDIxODA2MSwiZXhwIjoxNjgwMzkwODYxfQ.QjHrtTJjZa7eBkYAtIeH__OcRmuYQTTJsEeg2WCfgwE",
           "Content-Type": "multipart/form-data",
         },
       });
@@ -47,35 +47,8 @@ const Lands = (props: Props) => {
     })();
   }, []);
 
-  //table columns
-  //   const columns = useMemo(
-  //     () => [
-  //       {
-  //         Header: "Reference",
-  //         accessor: "show.reference",
-  //       },
-  //       {
-  //         Header: "Ville",
-  //         accessor: "show.town",
-  //       },
-  //       {
-  //         Header: "Quartier",
-  //         accessor: "show.district",
-  //       },
-  //       {
-  //         Header: "Localisation",
-  //         accessor: "show.localisation",
-  //       },
-  //       {
-  //         Header: "Surface",
-  //         accessor: "show.surface",
-  //       },
-  //     ],
-  //     []
-  //   );
-
   const [rowSelection, setRowSelection] = useState({});
-  const [globalFilter, setGlobalFilter] = useState("");
+  // const [globalFilter, setGlobalFilter] = useState("");
 
   const columns = useMemo<ColumnDef<LandRowModel>[]>(
     () => [
@@ -341,7 +314,7 @@ function IndeterminateCheckbox({
     if (typeof indeterminate === "boolean") {
       ref.current.indeterminate = !rest.checked && indeterminate;
     }
-  }, [ref, indeterminate]);
+  }, [ref, indeterminate, rest.checked]);
 
   return (
     <input

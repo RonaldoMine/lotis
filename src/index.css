@@ -12,8 +12,10 @@ line-height: 1.5;
 @font-face {
   font-family: "sequel-light";
   src: url("../public/fonts/Sequel-Sans-Light-Head.ttf");
+    font-display: block;
 }
 @font-face {
   font-family: "sequel-bold";
   src: url("../public/fonts/Sequel-Sans-Book-Head.ttf");
+    font-display: block;
 }

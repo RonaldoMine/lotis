@@ -5,8 +5,8 @@ import { SlSizeFullscreen } from "react-icons/sl";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { MdOutlineLocationSearching, MdOutlinePlace } from "react-icons/md";
 import Button from "../components/Button";
-import axios from "axios";
-import { BASE_URL } from "../utils/axios/axios";
+import { useAddLand } from "../hooks/mutations/useAddLand";
+import { toast } from "react-toastify";
 
 type landProps = {
   referenceNumber: string;
@@ -20,19 +20,72 @@ type landProps = {
   documents: any;
 };
 
-const AddLand = () => {
-  const [landDatas, setLandDatas] = useState<landProps>({
-    referenceNumber: "",
-    surface: "",
-    town: "",
-    district: "",
-    localisation: "",
-    mapCoordinates: "40.71,-70.96",
-    plans: null,
-    pictures: null,
-    documents: null,
-  });
+const initialState = {
+  referenceNumber: "",
+  surface: "",
+  town: "",
+  district: "",
+  localisation: "",
+  mapCoordinates: "40.71,-70.96",
+  plans: null,
+  pictures: null,
+  documents: null,
+};
 
+const AddLand = () => {
+  const [landDatas, setLandDatas] = useState<landProps>(initialState);
+
+  const { mutateAsync: addLand } = useAddLand();
+
+  // const customId = "toaster";
+
+  const submitForm = async () => {
+    try {
+      const response = await addLand({
+        ...landDatas,
+        documents: landDatas.documents[0],
+        plans: landDatas.plans[0],
+        pictures: landDatas.pictures[0],
+      });
+      if (response) {
+        toast.success("Success !");
+      }
+    } catch (error) {
+      toast.error("An error occured !");
+    }
+  };
+
+  // if (isSuccess) {
+  //   toast.success("Success !");
+  // }
+
+  // if (isLoading) {
+  //   toast.loading("Loading...");
+  // }
+
+  // if (isError) {
+  //   toast.error("An error occured !");
+  // }
+
+  // if (!isLoading) {
+  //   if (isSuccess) {
+  //     toast.update(id, {
+  //       render: "Land created",
+  //       type: "success",
+  //       isLoading: false,
+  //       autoClose: 2500,
+  //     });
+  //     setLandDatas(initialState);
+  //   }
+  //   if (isError) {
+  //     toast.update(id, {
+  //       render: "A problem occured",
+  //       type: "error",
+  //       isLoading: false,
+  //       autoClose: 2500,
+  //     });
+  //   }
+  // }
 
   return (
     <div>
@@ -145,8 +198,6 @@ const AddLand = () => {
                     id="plan-upload"
                     name="plans"
                     type="file"
-                    
-                    
                     onChange={(e) =>
                       setLandDatas({
                         ...landDatas,
@@ -204,8 +255,6 @@ const AddLand = () => {
                     id="photos-upload"
                     name="pictures"
                     type="file"
-                    
-                    
                     onChange={(e) =>
                       setLandDatas({
                         ...landDatas,
@@ -256,11 +305,9 @@ const AddLand = () => {
             type="file"
             name="documents"
             id="documents"
-            
             placeholder="+ Add a file"
             // className="sr-only"
             className="ml-3"
-            
             onChange={(e) =>
               setLandDatas({
                 ...landDatas,
@@ -280,26 +327,7 @@ const AddLand = () => {
         </div>
         <Divider />
       </section>
-      <Button onClick={() => {axios
-        .post(
-          BASE_URL + "lands/store",
-          {
-            ...landDatas,
-            documents: landDatas.documents[0],
-            plans: landDatas.plans[0],
-            pictures: landDatas.pictures[0],
-          },
-          {
-            headers: {
-              Authorization:
-                "Bearer " +
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvbmFsZG9AZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTY3OTg3MDU5OCwiZXhwIjoxNjgwMDQzMzk4fQ.hmjZVcoFTjq7oXp8Svr4M86Z8EW44fsZt0XCTqX6x7Y",
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        )
-        .then(console.log)
-        .catch(console.log);}}>Ok</Button>
+      <Button onClick={submitForm}>Ok</Button>
     </div>
   );
 };
