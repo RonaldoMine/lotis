@@ -1,35 +1,58 @@
-import {useState, useEffect} from "react";
+import {FormEvent, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import Button from "../components/Button";
-import Divider from "../components/Divider";
-import TextInput from "../components/TextInput";
-import {useAuthStore} from "../stores/authStore/authStore";
-import svg2 from "../assets/images/svg/2.jpg";
-
-// type Props = {};
+import {toast} from "react-toastify";
+import axios from "axios";
+import {BASE_URL} from "../utils/axios/axios";
+import useAuth from "../hooks/useAuth";
 
 export default function SignIn() {
     //state
-    const [signIn, setSignIn] = useState({email: "", password: ""});
-
-    const login = useAuthStore((state) => state.login);
-    const auth = useAuthStore((state) => state.auth);
+    const [userInfos, setUserInfos] = useState({email: "", password: ""});
+    const {signIn} = useAuth();
     const navigate = useNavigate();
-    // const resetErrors = useAuthStore((state) => state.resetErrors);
-
-    // useEffect(() => {
-    //   auth.errors != null ? console.log('Error '+auth.errors) : console.log(auth.currentUser);
-    //   return () => {
-    //     resetErrors();
-    //   };
-    // }, [auth]);
-    useEffect(() => {
-        auth.currentUser !== null ? console.log('d') : console.log('d')
-    }, [auth])
 
     //function
-    const handleSubmit = () => {
-        login(signIn.email, signIn.password);
+    const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        try {
+            const user = await toast.promise(
+                axios.post(BASE_URL + "auth/login", {
+                    email: userInfos.email,
+                    password: userInfos.password,
+                }),
+                {
+                    pending: "Loading...",
+                    success: "Successfully authenticated👌",
+                    error: "An error occured 🤯",
+                },
+                {
+                    pauseOnFocusLoss: false,
+                }
+            );
+            const {
+                first_name,
+                last_name,
+                role_id,
+                token,
+                cni_number,
+                commercial_register_number,
+            } = user.data?.user;
+            signIn({
+                email: userInfos.email,
+                token,
+                firstName: first_name,
+                lastName: last_name,
+                role: role_id,
+                cniNumber: cni_number,
+                commercialRegisterNumber: commercial_register_number,
+            });
+
+            navigate("/admin/dashboard", {
+                replace: true,
+            });
+        } catch (error) {
+            console.log("Error", error);
+        }
     };
     return (
         <div className="card">
@@ -37,7 +60,7 @@ export default function SignIn() {
                 <div className="title-3 text-start">
                     <h2>Connexion</h2>
                 </div>
-                <form autoComplete="off">
+                <form autoComplete="off" method={"post"} onSubmit={handleSubmit}>
                     <div className="form-group">
                         <div className="input-group">
                             <input
@@ -45,6 +68,11 @@ export default function SignIn() {
                                 className="form-control"
                                 placeholder="Email"
                                 autoComplete="off"
+                                required
+                                value={userInfos.email}
+                                onChange={(e) =>
+                                    setUserInfos({...userInfos, email: e.target.value})
+                                }
                             />
                         </div>
                     </div>
@@ -57,6 +85,11 @@ export default function SignIn() {
                                 placeholder="Password"
                                 autoComplete="off"
                                 maxLength={8}
+                                required
+                                value={userInfos.password}
+                                onChange={(e) =>
+                                    setUserInfos({...userInfos, password: e.target.value})
+                                }
                             />
                             <div className="input-group-apend">
                                 <div className="input-group-text">
@@ -81,9 +114,9 @@ export default function SignIn() {
                             Mot de passe oublié ?
                         </Link>
                     </div>
-                    <div>
+                    <div className='flex'>
                         <button
-                            type="button"
+                            type="submit"
                             className="btn btn-gradient btn-pill color-2 me-sm-3 me-2"
                         >
                             Se connecter

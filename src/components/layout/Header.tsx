@@ -1,6 +1,8 @@
 import avatar from "../../assets/images/avatar/2.jpg"
+import useAuth from "../../hooks/useAuth";
 
 export default function Header() {
+    const { signOut } = useAuth();
     return (
         <div className="page-main-header row">
             <div id="sidebar-toggle" className="toggle-sidebar col-auto">
@@ -29,20 +31,10 @@ export default function Header() {
                             />
                         </div>
                         <ul className="profile-dropdown onhover-show-div">
-                            <li>
-                                <a href="#">
-                                    <span>Account </span>
-                                    <i data-feather="user"/>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="listing.html">
-                                    <span>Listing</span>
-                                    <i data-feather="file-text"/>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="login.html">
+                            <li className="hover:cursor-pointer">
+                                <a onClick={() => {
+                                    signOut()
+                                }}>
                                     <span>Log in</span>
                                     <i data-feather="log-in"/>
                                 </a>

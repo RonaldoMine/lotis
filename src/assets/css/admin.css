@@ -23668,7 +23668,7 @@ label {
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     position: relative;
-    padding: 9px 30px 8px;
+    padding: 9px 15px 8px;
 }
 
 .btn.btn-dashed:hover {

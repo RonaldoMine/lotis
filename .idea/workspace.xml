@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ee4e272b-0577-4982-8835-0c8f48d7b1f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/auth/RequireAuth.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/routes/ManageRoute.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/routes/Missing.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/context/AuthProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/mutations/useAddLand.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useAuth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/EditLayout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/FormLayout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddLand.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddLand.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Lands.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Lands.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginBckp.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignIn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignUpBckp.tsx" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NmQPEz94vNk0XZjKtC8I6UcCPA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "D:\\Projects\\React\\lotis-frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee4e272b-0577-4982-8835-0c8f48d7b1f8" name="Changes" comment="" />
+      <created>1680266751890</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680266751890</updated>
+      <workItem from="1680266753430" duration="331000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
