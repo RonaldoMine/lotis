@@ -1,0 +1,20 @@
+
+table > tbody > tr:nth-of-type(2n+1) > * {
+    background-color: #f8f8f8;
+}
+
+table :is(thead, tbody) :is(th, td) {
+    border: 1px solid #f8f4f4;
+}
+
+table thead th {
+    background: #f3f3f3;
+}
+
+table thead tr :is(th, td) {
+    padding: 0.75rem
+}
+
+table :is(tbody, tfoot) tr :is(th, td) {
+    padding: 0.55rem
+}

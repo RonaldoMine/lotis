@@ -2,29 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee4e272b-0577-4982-8835-0c8f48d7b1f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/auth/RequireAuth.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/routes/ManageRoute.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/routes/Missing.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/AuthProvider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/mutations/useAddLand.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useAuth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/EditLayout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/FormLayout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/css/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pagination.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AddLand.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddLand.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Dashboard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Lands.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Lands.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginBckp.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignIn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignUpBckp.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,6 +39,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Projects/React/lotis-frontend/src/pages",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
@@ -49,6 +48,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\React\lotis-frontend\src\pages" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680266751890</updated>
-      <workItem from="1680266753430" duration="331000" />
+      <workItem from="1680266753430" duration="7785000" />
     </task>
     <servers />
   </component>

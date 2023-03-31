@@ -67,10 +67,9 @@ export default function SideBar() {
                             </ul>
                         </li>
                         <li className="sidebar-item">
-                            <a href="javascript:void(0)" className="sidebar-link">
-                                <i data-feather="users"/>
+                            <Link to="/admin/users">
                                 <span>Utilisateurs</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

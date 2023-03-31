@@ -23,16 +23,17 @@ import Pagination from "../components/Pagination";
 
 type Props = {};
 
-type LandRowModel = {
-    reference: string
-    town: string
-    district: string
-    localisation: string
-    surface: string
-    subRows?: LandRowModel[]
+type UserRowModel = {
+    first_name: string
+    last_name: string
+    phone: string
+    email: string
+    commercial_register_number: string
+    cni_number: string
+    subRows?: UserRowModel[]
 }
 
-const Lands = (props: Props) => {
+const Users = (props: Props) => {
     const [data, setData] = useState<any>([]);
     const [enabledFilter, setEnabledFilter] = useState<boolean>(false)
     const {auth} = useAuth()
@@ -40,20 +41,19 @@ const Lands = (props: Props) => {
     //side effects
     useEffect(() => {
         (async () => {
-            const fetchLands = await axios.get(BASE_URL + "lands", {
+            const fetchUsers = await axios.get(BASE_URL + "users", {
                 headers: {
                     Authorization: `Bearer ${auth.token}`,
-                    "Content-Type": "multipart/form-data",
                 },
             });
-            setData(fetchLands?.data);
+            setData(fetchUsers?.data);
         })();
     }, [auth.token]);
 
     const [rowSelection, setRowSelection] = useState({});
     // const [globalFilter, setGlobalFilter] = useState("");
 
-    const columns = useMemo<ColumnDef<LandRowModel>[]>(
+    const columns = useMemo<ColumnDef<UserRowModel>[]>(
         () => [
             {
                 id: "select",
@@ -80,35 +80,41 @@ const Lands = (props: Props) => {
                 ),
             },
             {
-                header: "Reference",
+                header: "Noms",
                 footer: (props) => props.column.id,
-                accessorKey: "reference_number",
+                accessorKey: "first_name",
                 // cell: (info) => info.getValue(),
             },
             {
-                header: "Ville",
+                header: "Prénoms",
                 footer: (props) => props.column.id,
-                accessorKey: "town",
+                accessorKey: "last_name",
                 // cell: (info) => info.getValue(),
             },
             {
-                header: "Quartier",
+                header: "Téléphone",
                 footer: (props) => props.column.id,
-                accessorKey: "district",
+                accessorKey: "phone",
                 // cell: (info) => info.getValue(),
             },
             {
-                header: "Localisation",
+                header: "Email",
                 footer: (props) => props.column.id,
-                accessorKey: "localisation",
+                accessorKey: "email",
                 // cell: (info) => info.getValue(),
             },
             {
-                header: "Surface",
+                header: "Registre du commerce",
                 footer: (props) => props.column.id,
-                accessorKey: "surface",
+                accessorKey: "commercial_register_number",
                 // cell: (info) => info.getValue(),
             },
+            {
+                header: "CNI",
+                footer: (props) => props.column.id,
+                accessorKey: "cni_number",
+                // cell: (info) => info.getValue(),
+            }
         ],
         []
     );
@@ -135,7 +141,7 @@ const Lands = (props: Props) => {
             <PageHeader title={"Terrains"} link={"/admin/lands"}/>
             <div className="card">
                 <div className="card-header pb-0 flex justify-between">
-                    <h5>Liste des terrains</h5>
+                    <h5>Liste des utilisateurs</h5>
                     <button type="button" onClick={() => setEnabledFilter(!enabledFilter)}
                             className={`btn btn-pill ${enabledFilter ? 'btn-gradient' : 'btn-dashed'} color-4`}>Filtrer
                     </button>
@@ -282,4 +288,4 @@ function IndeterminateCheckbox({
     );
 }
 
-export default Lands;
+export default Users;
