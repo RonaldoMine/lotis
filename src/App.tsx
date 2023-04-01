@@ -10,6 +10,7 @@ import {QueryClient, QueryClientProvider} from "react-query";
 import ManageRoute from "./components/routes/ManageRoute";
 import RequireAuth from "./components/auth/RequireAuth";
 import {ToastContainer} from "react-toastify";
+import Users from "./pages/Users";
 
 function App() {
     const qc = new QueryClient();
@@ -27,6 +28,7 @@ function App() {
                             <Route path="dashboard" element={<Dashboard/>}/>
                             <Route path="lands" element={<Lands/>}/>
                             <Route path="lands/add" element={<AddLand/>}/>
+                            <Route path="users" element={<Users/>}/>
                         </Route>
                     </Route>
                     <Route path="*" element={<ManageRoute/>}/>

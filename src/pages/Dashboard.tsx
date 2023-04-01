@@ -1,5 +1,6 @@
 import stats from "../assets/images/dashabord.png"
 import PageHeader from "../components/PageHeader";
+import {Link} from "react-router-dom";
 
 export default function Dashboard() {
     return (
@@ -22,10 +23,10 @@ export default function Dashboard() {
                                                 <h4 className="mb-0">500</h4>
                                                 <h6 className="light-font">Terrains</h6>
                                             </div>
-                                            <a href="listing.html" className="arrow-animated">
+                                            <Link to={"/admin/lands"} className="arrow-animated">
                                                 Voir tous les terrains
                                                 <i data-feather="chevron-right"/>
-                                            </a>
+                                            </Link>
                                         </div>
                                         <ul className="light-box">
                                             <li>

@@ -35,7 +35,7 @@ export default function Header() {
                                 <a onClick={() => {
                                     signOut()
                                 }}>
-                                    <span>Log in</span>
+                                    <span>Logout</span>
                                     <i data-feather="log-in"/>
                                 </a>
                             </li>

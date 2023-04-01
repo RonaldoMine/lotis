@@ -6,6 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import './assets/css/animate.css'
 import './assets/css/admin.css'
+import './assets/css/custom.css'
 import './index.css'
 import {AuthProvider} from "./context/AuthProvider";
 

@@ -4,7 +4,7 @@ export default function SideBar() {
     return (
         <div className="page-sidebar">
             <div className="logo-wrap">
-                <a href="index-2.html">
+                <a href="#">
                     <img
                         src="../assets/images/logo/4.png"
                         className="img-fluid for-light"
@@ -47,7 +47,7 @@ export default function SideBar() {
                             </Link>
                         </li>
                         <li className="sidebar-item">
-                            <a href="javascript:void(0)" className="sidebar-link">
+                            <a href="#" className="sidebar-link">
                                 <i data-feather="grid"/>
                                 <span>Mes terrains</span>
                             </a>
@@ -67,10 +67,9 @@ export default function SideBar() {
                             </ul>
                         </li>
                         <li className="sidebar-item">
-                            <a href="javascript:void(0)" className="sidebar-link">
-                                <i data-feather="users"/>
+                            <Link to="/admin/users">
                                 <span>Utilisateurs</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

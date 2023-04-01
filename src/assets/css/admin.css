@@ -2813,7 +2813,7 @@ textarea.form-control-lg {
     -moz-appearance: none;
     appearance: none;
     -webkit-print-color-adjust: exact;
-    color-adjust: exact;
+    print-color-adjust: exact;
 }
 
 .form-check-input[type="checkbox"] {
@@ -23373,7 +23373,6 @@ label {
 ==========================**/
 .btn {
     font-weight: 600;
-    text-transform: capitalize;
     padding: 8px 30px 7px;
     border-radius: 8px;
     font-size: 14px;
